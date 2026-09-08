@@ -2,34 +2,396 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Acordos Extrajudiciais | Pedro H V Aurélio Advocacia</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pedro H. V. Aurélio | Advocacia</title>
+<meta name="description" content="Pedro H. V. Aurélio Advocacia — soluções jurídicas seguras, eficientes e personalizadas.">
 <style>
+:root{
+  --bg:#0b0c0f;
+  --bg-soft:#111318;
+  --paper:#f4f1eb;
+  --paper-2:#ebe7df;
+  --ink:#1d1d1d;
+  --gold:#c9a56a;
+  --gold-soft:#dfc28e;
+  --line:rgba(201,165,106,.55);
+  --white:#f8f7f3;
+}
 *{box-sizing:border-box}
-body{margin:0;font-family:Georgia,"Times New Roman",serif;background:#fff;color:#000;line-height:1.7}
-header{min-height:520px;padding:50px 20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;color:#fff;border-bottom:1px solid #000;background-image:linear-gradient(rgba(0,0,0,.36),rgba(0,0,0,.48)),url("escritorio-fundo.png");background-size:cover;background-position:center;background-repeat:no-repeat}
-header h1{font-size:clamp(38px,6vw,68px);margin:0 0 18px;letter-spacing:1px;text-shadow:0 2px 12px rgba(0,0,0,.8)}
-header p{font-size:clamp(18px,2vw,24px);max-width:800px;margin:0 auto;text-shadow:0 2px 10px rgba(0,0,0,.85)}
-section{max-width:900px;margin:70px auto;padding:0 20px}
-h2{font-size:24px;border-bottom:1px solid #000;padding-bottom:10px;margin-bottom:25px}
-ul{padding-left:20px}ul li{margin-bottom:12px}
-.cta{text-align:center;margin:80px 0}
-.cta a{display:inline-block;padding:15px 30px;border:1px solid #000;text-decoration:none;color:#000;font-weight:bold;transition:.2s ease}
-.cta a:hover{background:#000;color:#fff}
-footer{border-top:1px solid #000;padding:25px;text-align:center;font-size:14px}
-@media(max-width:600px){header{min-height:430px;padding:40px 20px;background-position:center}section{margin:50px auto}}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  color:var(--ink);
+  background:var(--paper);
+  line-height:1.65;
+}
+h1,h2,h3,.brand-name{
+  font-family:Georgia,"Times New Roman",serif;
+  font-weight:400;
+}
+a{color:inherit}
+.hero{
+  min-height:690px;
+  position:relative;
+  color:var(--white);
+  background:
+    linear-gradient(90deg,rgba(5,6,8,.88) 0%,rgba(5,6,8,.67) 40%,rgba(5,6,8,.28) 72%,rgba(5,6,8,.38) 100%),
+    url("assets/escritorio.jpg") center/cover no-repeat;
+  overflow:hidden;
+}
+.hero::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(to bottom,rgba(0,0,0,.2),transparent 35%,rgba(0,0,0,.35));
+  pointer-events:none;
+}
+.nav{
+  width:min(1240px,92%);
+  margin:auto;
+  height:104px;
+  position:relative;
+  z-index:2;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:30px;
+}
+.brand{
+  display:flex;
+  align-items:center;
+  gap:18px;
+  text-decoration:none;
+  min-width:max-content;
+}
+.monogram{
+  width:58px;
+  height:58px;
+  display:grid;
+  place-items:center;
+  color:var(--gold-soft);
+  font:42px/1 Georgia,serif;
+  border-left:1px solid var(--gold);
+}
+.brand-text{display:flex; flex-direction:column; gap:1px}
+.brand-name{font-size:23px; letter-spacing:1.8px}
+.brand-sub{
+  font-size:12px;
+  letter-spacing:5px;
+  color:var(--gold-soft);
+  text-align:center;
+}
+.menu{display:flex; align-items:center; gap:38px}
+.menu a{
+  color:#e9e7e1;
+  text-decoration:none;
+  font-size:15px;
+  padding:10px 0;
+  border-bottom:1px solid transparent;
+  transition:.2s ease;
+}
+.menu a:hover,.menu a.active{color:var(--gold-soft);border-bottom-color:var(--gold)}
+.hero-content{
+  width:min(1240px,92%);
+  margin:0 auto;
+  position:relative;
+  z-index:2;
+  padding:70px 0 115px;
+  max-width:1240px;
+}
+.hero-copy{max-width:650px}
+.hero h1{
+  font-size:clamp(68px,8.5vw,120px);
+  line-height:.9;
+  margin:0 0 28px;
+  letter-spacing:-3px;
+}
+.hero-rule{
+  width:78px;
+  height:2px;
+  background:var(--gold);
+  margin:28px 0 22px;
+}
+.hero-copy p{
+  font-size:20px;
+  max-width:540px;
+  margin:0 0 30px;
+  color:#e9e7e1;
+}
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:11px;
+  min-height:56px;
+  padding:0 27px;
+  border:1px solid var(--gold);
+  color:var(--gold-soft);
+  text-decoration:none;
+  font-size:15px;
+  font-weight:700;
+  letter-spacing:.4px;
+  transition:.25s ease;
+}
+.btn:hover{background:var(--gold);color:#17130d}
+.btn svg{width:20px;height:20px;fill:currentColor}
+.about{
+  padding:76px 0;
+  background:linear-gradient(115deg,var(--paper) 0%,var(--paper-2) 100%);
+}
+.container{width:min(1120px,90%);margin:auto}
+.about-grid{
+  display:grid;
+  grid-template-columns:390px 1fr;
+  gap:78px;
+  align-items:center;
+}
+.profile-photo{
+  width:100%;
+  aspect-ratio:1/1.08;
+  object-fit:cover;
+  object-position:center;
+  border-radius:6px;
+  display:block;
+  box-shadow:0 20px 45px rgba(0,0,0,.14);
+}
+.eyebrow{
+  color:#9f7b3f;
+  font-size:15px;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  margin:0 0 12px;
+}
+.about h2{
+  font-size:clamp(42px,5vw,62px);
+  line-height:1;
+  margin:0 0 10px;
+}
+.about .role{
+  color:#a78348;
+  letter-spacing:3px;
+  text-transform:uppercase;
+  font-size:15px;
+  margin:0 0 19px;
+}
+.small-rule{width:58px;height:2px;background:var(--gold);margin:18px 0}
+.about p{font-size:18px;max-width:720px;margin:18px 0}
+.about strong{font-weight:700}
+.benefits{
+  background:linear-gradient(100deg,#0a0b0e,#16191f);
+  color:#f2f0eb;
+  padding:36px 0 48px;
+}
+.section-title{
+  display:flex;
+  align-items:center;
+  gap:20px;
+  justify-content:center;
+  margin:0 0 34px;
+  color:var(--gold-soft);
+  text-transform:uppercase;
+  letter-spacing:1.2px;
+  font-size:21px;
+}
+.section-title::before,.section-title::after{
+  content:"";
+  height:1px;
+  background:var(--line);
+  flex:1;
+}
+.benefit-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:25px;
+}
+.benefit{text-align:center;padding:5px 12px}
+.icon{
+  width:52px;height:52px;margin:0 auto 12px;
+  display:grid;place-items:center;
+  border:1px solid var(--gold);
+  border-radius:50%;
+  color:var(--gold-soft);
+  font-size:24px;
+}
+.benefit h3{
+  margin:0 0 6px;
+  color:#f1eee8;
+  font-family:Arial,Helvetica,sans-serif;
+  font-size:16px;
+  letter-spacing:.5px;
+}
+.benefit p{margin:0;color:#c6c5c1;font-size:14px}
+.services{padding:80px 0;background:#fff}
+.services h2,.contact h2,.news h2{
+  font-size:48px; margin:0 0 12px; line-height:1.05;
+}
+.lead{max-width:760px;font-size:18px;color:#4d4d4d;margin:0 0 35px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{
+  border:1px solid #ded8cd;
+  padding:28px;
+  min-height:220px;
+  background:#fff;
+}
+.card span{color:#a78348;font-size:13px;letter-spacing:2px;text-transform:uppercase}
+.card h3{font-size:28px;margin:10px 0}
+.card p{color:#565656;margin:0}
+.news{padding:80px 0;background:#eeeae2}
+.news-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.news-card{background:#fff;padding:26px;border-top:3px solid var(--gold)}
+.news-card small{color:#9a7a44;text-transform:uppercase;letter-spacing:1.5px}
+.news-card h3{font-size:25px;line-height:1.2;margin:10px 0}
+.news-card p{color:#555}
+.contact{
+  padding:86px 0;
+  background:var(--bg);
+  color:var(--white);
+}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center}
+.contact p{font-size:18px;color:#d7d4cf}
+.contact-box{
+  border:1px solid var(--line);
+  padding:34px;
+  background:rgba(255,255,255,.025);
+}
+.contact-box p{font-size:15px;margin:8px 0 22px}
+footer{
+  background:#060709;color:#8f8d88;
+  padding:24px 5%;
+  text-align:center;
+  font-size:13px;
+}
+.mobile-toggle{display:none}
+@media(max-width:900px){
+  .menu{gap:20px}
+  .about-grid{grid-template-columns:320px 1fr;gap:42px}
+  .benefit-grid{grid-template-columns:repeat(2,1fr)}
+  .cards,.news-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){
+  .hero{min-height:650px;background-position:62% center}
+  .nav{height:auto;padding:20px 0;align-items:flex-start}
+  .brand-name{font-size:16px;letter-spacing:1px}
+  .brand-sub{font-size:9px;letter-spacing:3px}
+  .monogram{width:43px;height:43px;font-size:30px}
+  .menu{
+    position:absolute; top:84px; right:0; left:0;
+    display:flex; flex-wrap:wrap; gap:8px 16px;
+    padding:12px 0;
+  }
+  .menu a{font-size:13px}
+  .hero-content{padding-top:130px}
+  .hero h1{letter-spacing:-1.5px}
+  .hero-copy p{font-size:17px}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .about-grid{gap:30px}
+  .profile-photo{max-width:420px}
+  .benefit-grid,.cards,.news-grid{grid-template-columns:1fr}
+  .section-title{font-size:16px}
+  .services h2,.contact h2,.news h2{font-size:39px}
+}
 </style>
 </head>
 <body>
-<header>
-<h1>Acordos Extrajudiciais</h1>
-<p>Soluções jurídicas eficazes para resolução de conflitos sem a necessidade de processos judiciais.</p>
+
+<header class="hero" id="home">
+  <nav class="nav">
+    <a class="brand" href="#home" aria-label="Página inicial">
+      <span class="monogram">PV</span>
+      <span class="brand-text">
+        <span class="brand-name">PEDRO H V AURÉLIO</span>
+        <span class="brand-sub">ADVOCACIA</span>
+      </span>
+    </a>
+    <div class="menu">
+      <a class="active" href="#home">Home</a>
+      <a href="#atuacao">Área de Atuação</a>
+      <a href="#contato">Contato</a>
+      <a href="#noticias">Notícias Jurídicas</a>
+    </div>
+  </nav>
+
+  <div class="hero-content">
+    <div class="hero-copy">
+      <h1>Acordos<br>Extrajudiciais</h1>
+      <div class="hero-rule"></div>
+      <p>Soluções jurídicas eficientes, seguras e personalizadas para prevenir e resolver conflitos.</p>
+      <!-- TROQUE O NÚMERO ABAIXO PELO SEU: 55 + DDD + NÚMERO, sem espaços -->
+      <a class="btn" href="https://wa.me/5551995560504" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12.04 2C6.52 2 2.04 6.48 2.04 12c0 1.77.46 3.43 1.27 4.88L2 22l5.28-1.25A9.94 9.94 0 0 0 12.04 22c5.52 0 10-4.48 10-10S17.56 2 12.04 2Zm0 18.17c-1.53 0-2.96-.42-4.18-1.14l-.3-.18-3.13.74.75-3.05-.2-.31A8.15 8.15 0 0 1 3.88 12c0-4.5 3.66-8.17 8.16-8.17S20.21 7.5 20.21 12s-3.67 8.17-8.17 8.17Zm4.48-6.12c-.25-.12-1.47-.73-1.7-.81-.23-.08-.4-.12-.57.12-.17.25-.66.81-.81.98-.15.16-.3.18-.55.06-.25-.13-1.07-.39-2.03-1.24-.75-.67-1.25-1.49-1.4-1.74-.15-.25-.02-.39.11-.51.11-.11.25-.3.37-.45.12-.15.16-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.57-1.37-.78-1.88-.2-.48-.41-.42-.57-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.55c.12.16 1.73 2.64 4.19 3.7.59.25 1.05.4 1.41.51.59.19 1.13.16 1.55.1.47-.07 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.11-.23-.17-.48-.29Z"/></svg>
+        FALAR COM UM ADVOGADO
+      </a>
+    </div>
+  </div>
 </header>
-<section><h2>O que são Acordos Extrajudiciais</h2><p>Os acordos extrajudiciais são instrumentos jurídicos que permitem às partes resolverem conflitos de forma consensual, segura e célere, evitando os custos, a demora e os riscos de uma ação judicial.</p></section>
-<section><h2>Vantagens da Solução Extrajudicial</h2><ul><li>✔ Redução significativa de custos</li><li>✔ Rapidez na resolução do conflito</li><li>✔ Menor desgaste emocional entre as partes</li><li>✔ Segurança jurídica com respaldo legal</li><li>✔ Possibilidade de homologação judicial, quando necessário</li></ul></section>
-<section><h2>Atuação Profissional</h2><p>O escritório atua na condução, elaboração e formalização de acordos extrajudiciais em diversas áreas, sempre com foco na prevenção de litígios e na proteção dos interesses do cliente.</p></section>
-<section><h2>Quando Procurar um Advogado</h2><p>A assessoria jurídica é fundamental para garantir que o acordo seja válido, equilibrado e eficaz, evitando nulidades e futuros questionamentos judiciais.</p></section>
-<div class="cta"><a href="https://wa.me/5551995560504" target="_blank">Falar com um Advogado</a></div>
-<footer>© 2026 – Pedro H V Aurélio Advocacia • OAB/PR 115.681</footer>
+
+<section class="about" id="sobre">
+  <div class="container about-grid">
+    <img class="profile-photo" src="assets/pedro-aurelio.jpg" alt="Pedro H. V. Aurélio, advogado">
+    <div>
+      <h2>Pedro H. V. Aurélio</h2>
+      <p class="role">Advogado &nbsp;•&nbsp; OAB/PR 115.681</p>
+      <div class="small-rule"></div>
+      <p>Formado em Direito pela Pontifícia Universidade Católica do Paraná (PUCPR).</p>
+      <p>Possui <strong>ampla experiência na condução e formalização de acordos envolvendo a Fazenda Pública</strong>, especialmente em questões de natureza <strong>fiscal e tributária</strong>.</p>
+      <p>O atendimento é pautado pela análise individualizada de cada caso, com foco na segurança jurídica, na eficiência e na proteção dos interesses do cliente.</p>
+    </div>
+  </div>
+</section>
+
+<section class="benefits">
+  <div class="container">
+    <h2 class="section-title">Vantagens da Solução Extrajudicial</h2>
+    <div class="benefit-grid">
+      <div class="benefit"><div class="icon">◷</div><h3>RAPIDEZ</h3><p>Soluções mais ágeis, evitando a morosidade do processo judicial.</p></div>
+      <div class="benefit"><div class="icon">$</div><h3>ECONOMIA</h3><p>Redução de custos com custas processuais e honorários.</p></div>
+      <div class="benefit"><div class="icon">⌾</div><h3>SEGURANÇA JURÍDICA</h3><p>Acordos formalizados com validade legal e segurança para as partes.</p></div>
+      <div class="benefit"><div class="icon">↔</div><h3>FLEXIBILIDADE</h3><p>Condições personalizadas, adequadas à realidade de cada caso.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="atuacao">
+  <div class="container">
+    <p class="eyebrow">Área de atuação</p>
+    <h2>Como posso ajudar</h2>
+    <p class="lead">Atuação orientada à prevenção de litígios e à construção de soluções juridicamente seguras e eficientes.</p>
+    <div class="cards">
+      <article class="card"><span>01</span><h3>Acordos Extrajudiciais</h3><p>Negociação, estruturação e formalização de soluções consensuais para resolução de conflitos.</p></article>
+      <article class="card"><span>02</span><h3>Questões Fiscais</h3><p>Atuação estratégica em negociações e acordos relacionados a obrigações e conflitos de natureza fiscal.</p></article>
+      <article class="card"><span>03</span><h3>Fazenda Pública</h3><p>Experiência prática na condução de soluções envolvendo o Poder Público, com foco na segurança jurídica.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="news" id="noticias">
+  <div class="container">
+    <p class="eyebrow">Conteúdo</p>
+    <h2>Notícias Jurídicas</h2>
+    <p class="lead">Esta área já está preparada para receber artigos, comentários e atualizações jurídicas.</p>
+    <div class="news-grid">
+      <article class="news-card"><small>Em breve</small><h3>Atualizações jurídicas</h3><p>Espaço reservado para publicações e novidades relevantes.</p></article>
+      <article class="news-card"><small>Em breve</small><h3>Conteúdo informativo</h3><p>Artigos voltados à compreensão de temas jurídicos importantes.</p></article>
+      <article class="news-card"><small>Em breve</small><h3>Análises e orientações</h3><p>Conteúdo produzido para aproximar o direito de situações práticas.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contato">
+  <div class="container contact-grid">
+    <div>
+      <p class="eyebrow">Contato</p>
+      <h2>Vamos conversar?</h2>
+      <p>Entre em contato para uma análise inicial da sua situação e para conhecer as possibilidades jurídicas aplicáveis ao seu caso.</p>
+    </div>
+    <div class="contact-box">
+      <h3>Fale diretamente pelo WhatsApp</h3>
+      <p>Atendimento profissional, individualizado e orientado à busca da solução mais adequada.</p>
+      <a class="btn" href="https://wa.me/5551995560504" target="_blank" rel="noopener">INICIAR CONVERSA</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 — Pedro H. V. Aurélio Advocacia • OAB/PR 115.681</footer>
 </body>
 </html>
